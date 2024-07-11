@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Producto - Todocuero</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: beige;
+            font-family: 'Roboto', sans-serif;
+            color: #330000;
+            padding-top: 20px; /* Ajuste para el contenido bajo el navbar */
+        }
+        .product-details {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #330000;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+        }
+        .product-details img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+            border-radius: 5px;
+        }
+        .product-details h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        .buttons-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .buttons-container .btn {
+            margin-bottom: 10px;
+            width: 100%; /* Ancho completo del contenedor */
+            border-radius: 5px;
+        }
+        .btn-actualizar {
+            background-color: #006666; /* Color turquesa profundo */
+            color: beige;
+        }
+        .btn-cancelar {
+            background-color: #330000; /* Color rojo oscuro */
+            color: beige;
+        }
+        .btn-volver {
+            background-color: #392941; /* Color uva apagado */
+            color: beige;
+        }
+        .btn-actualizar:hover, .btn-cancelar:hover, .btn-volver:hover {
+            opacity: 0.8;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1">Actualizar Producto</span>
+        <ul class="navbar-nav ml-auto">
+            
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="product-details" id="product-details">
+           
+        </div>
+    </div>
+
+    <!-- Scripts opcionales de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obtener el ID del producto de la URL (ejemplo)
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id'); 
+
+            // Función para cargar los detalles del producto
+            function cargarProducto(id) {
+                fetch(`http://127.0.0.1:5000/productos/${id}`)
+                    .then(response => response.json())
+                    .then(producto => {
+                        const productDetails = document.getElementById('product-details');
+                        productDetails.innerHTML = `
+                            <img src="${producto.imagen_url}" alt="${producto.nombre_prod}">
+                            <h2>${producto.nombre_prod}</h2>
+                            <div class="form-group">
+                                <label for="descripcion">Descripción:</label>
+                                <textarea id="descripcion" name="descripcion">${producto.descripcion}</textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="precio">Precio:</label>
+                                <input type="text" id="precio" name="precio" value="${producto.precio}">
+                            </div>
+                            <div class="form-group">
+                                <label for="talla">Talla:</label>
+                                <input type="text" id="talla" name="talla" value="${producto.talla}">
+                            </div>
+                            <div class="form-group">
+                                <label for="color">Color:</label>
+                                <input type="text" id="color" name="color" value="${producto.color}">
+                            </div>
+                            <div class="form-group">
+                                <label for="tipo">Tipo:</label>
+                                <input type="text" id="tipo" name="tipo" value="${producto.tipo}">
+                            </div>
+                            <div class="form-group">
+                                <label for="stock">Stock:</label>
+                                <input type="number" id="stock" name="stock" value="${producto.stock}">
+                            </div>
+                            <div class="form-group">
+                                <label for="imagen_url">URL de Imagen:</label>
+                                <input type="text" id="imagen_url" name="imagen_url" value="${producto.imagen_url}">
+                                <div class="buttons-container">
+                                    <button class="btn btn-actualizar" onclick="actualizarProducto()">Actualizar Producto</button>
+                                    <button class="btn btn-cancelar" onclick="eliminarProducto()">Cancelar</button>
+                                    <button class="btn btn-volver" onclick="volverAdmin()">Volver a Gestión de Productos</button>
+                                </div>
+                            </div>
+                        `;
+                    })
+                    .catch(error => console.error('Error al obtener el producto:', error));
+            }
+
+            // Llamar a la función para cargar el producto
+            cargarProducto(productId);
+
+            function actualizarProducto() {
+                const idProducto = new URLSearchParams(window.location.search).get('id');
+                const data = {
+                    descripcion: document.getElementById('descripcion').value,
+                    precio: document.getElementById('precio').value,
+                    talla: document.getElementById('talla').value,
+                    color: document.getElementById('color').value,
+                    tipo: document.getElementById('tipo').value,
+                    stock: document.getElementById('stock').value,
+                    imagen_url: document.getElementById('imagen_url').value
+                };
+
+                fetch(`http://127.0.0.1:5000/productos/${idProducto}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Producto actualizado exitosamente');
+                        window.location.href = '/admin.html'; // Redirige a la ruta de admin.html
+                    } else {
+                        alert('Error al actualizar el producto');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error al actualizar el producto');
+                });
+            }
+
+            function eliminarProducto() {
+                const idProducto = new URLSearchParams(window.location.search).get('id');
+
+                fetch(`http://127.0.0.1:5000/productos/${idProducto}`, {
+                    method: 'DELETE',
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('Producto eliminado exitosamente');
+                        window.location.href = '/admin.html'; // Redirige a la ruta de admin.html
+                    } else {
+                        alert('Error al eliminar el producto');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error al eliminar el producto');
+                });
+            }
+
+            function volverAdmin() {
+                window.location.href = 'admin.html'; // Redirige a la página admin.html
+            }
+        });
+    </script>
+</body>
+</html>

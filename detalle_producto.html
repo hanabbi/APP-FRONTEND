@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Producto - Todocuero</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: beige;
+            font-family: 'Roboto', sans-serif;
+            color: #330000;
+            padding-top: 20px; /* Ajuste para el contenido bajo el navbar */
+        }
+        .product-details {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #330000;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+        }
+        .product-details img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+            border-radius: 5px;
+        }
+        .product-details h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #330000; /* Color específico */
+        }
+        .product-details p {
+            margin-bottom: 20px;
+        }
+        .buttons-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn-actualizar, .btn-eliminar, .btn-volver {
+            color: beige;
+            border: none;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            width: 100%;
+            max-width: 100%;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn-actualizar {
+            background-color: #006666; /* Color turquesa profundo */
+        }
+        .btn-eliminar {
+            background-color: #330000; /* Color 330000 */
+        }
+        .btn-volver {
+            background-color: #392946; /* Color uva apagado */
+        }
+        .btn-actualizar:hover, .btn-eliminar:hover, .btn-volver:hover {
+            opacity: 0.8;
+            cursor: pointer;
+            color: beige; /* Asegurar que el texto siempre sea visible */
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <span class="navbar-brand mb-0 h1" style="color: beige;">Detalle de Producto</span>
+        <ul class="navbar-nav ml-auto">
+           
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="product-details" id="product-details">
+            
+        </div>
+    </div>
+
+    <!-- Scripts opcionales de Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obtener el ID del producto de la URL (ejemplo)
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id'); 
+
+            // Función para cargar los detalles del producto
+            function cargarProducto(id) {
+                fetch(`http://127.0.0.1:5000/productos/${id}`)
+                    .then(response => response.json())
+                    .then(producto => {
+                        const productDetails = document.getElementById('product-details');
+                        productDetails.innerHTML = `
+                            <img src="${producto.imagen_url}" alt="${producto.nombre_prod}">
+                            <h2>${producto.nombre_prod}</h2>
+                            <p>${producto.descripcion}</p>
+                            <p>Precio: ${producto.precio}</p>
+                            <p>Talla: ${producto.talla}</p>
+                            <p>Color: ${producto.color}</p>
+                            <p>Tipo: ${producto.tipo}</p>
+                            <p>Stock: ${producto.stock}</p>
+                            <!-- Botones -->
+                            <div class="buttons-container">
+                                <button class="btn btn-actualizar" onclick="location.href='actualizar_producto.html?id=${producto.id_prod}'">Actualizar</button>
+                                <button class="btn btn-eliminar" onclick="eliminarProducto(${producto.id_prod})">Eliminar</button>
+                                <button class="btn btn-volver" onclick="volverAGestion()">Volver a Gestión de Productos</button>
+                            </div>
+                        `;
+                    })
+                    .catch(error => console.error('Error al obtener el producto:', error));
+            }
+
+            // Llamar a la función para cargar el producto
+            cargarProducto(productId); 
+
+            function eliminarProducto(id) {
+                if (confirm('¿Estás seguro de eliminar este producto?')) {
+                    fetch(`http://127.0.0.1:5000/productos/${id}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Error al eliminar el producto');
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        alert('Producto eliminado exitosamente');
+                        window.location.href = 'admin.html'; 
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('Error al eliminar el producto');
+                    });
+                }
+            }
+
+            function volverAGestion() {'admin.html';
+            }
+        });
+    </script>
+</body>
+</html>

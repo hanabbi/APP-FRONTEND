@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Cuero - Indumentaria y accesorios sobre cuero.</title>
+
+    <!--Favicon-->
+    <link rel="icon" href="favicon-todocuero-transp.png" type=" image/x-icon ">
+
+
+    <!--EmailJS Formulario de Contacto-->
+    <script type="text/javascript " src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js ">
+    </script>
+
+
+
+    <!--Google Fonts Roboto-->
+    <link rel="preconnect " href="https://fonts.googleapis.com ">
+    <link rel="preconnect " href="https://fonts.gstatic.com " crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap " rel="stylesheet ">
+
+    <!--Iconos Font Awesome-->
+    <link rel="stylesheet " href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css ">
+
+    <!-- Bootstrap CSS solo para barra navegación-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <!--Estilos para carrousel de Swiper y personalizado-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+    <!--Script Formulario-->
+    <script defer src="js/form.js"></script>
+
+    <script src="https://kit.fontawesome.com/7e5b2d153f.js" crossorigin="anonymous"></script>
+
+
+    <!--Estilos personalizados-->
+    <link rel="stylesheet " href="css/styles.css ">
+</head>
+
+<body>
+    <header class="header">
+        <!-- Barra de Navegación -->
+        <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+            <a class="navbar-brand" href="#"><img class="logo-nav" src="favicon-todocuero-transp.png" alt=""></a>
+            <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Inicio <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nosotros">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#diseños">Diseños</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#shop">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">GESTIÓN DE PRODUCTOS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contáctanos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Bootstrap JS, Popper.js, and jQuery -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <!--Fin nav-->
+
+
+    </header>
+    <main>
+        <!--Inicio de Carrousel-->
+        <section class="contenedor-carrousel">
+
+            <!-- Slider main container -->
+            <div class="swiper swiper-hero contenedor-carrousel">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    <div class="swiper-slide">
+                        <img src="images/carousel/carousel1.jpg" alt=" " />
+                    </div>
+                    <div class="swiper-slide ">
+                        <img src="images/carousel/carousel3.jpg " alt=" " />
+                    </div>
+                    <div class="swiper-slide ">
+                        <img src="images/carousel/carousel2.jpg " alt=" " />
+                    </div>
+
+                </div>
+
+                <!-- Navigation buttons
+                <div class="swiper-button-prev "></div>
+                <div class="swiper-button-next "></div> -->
+
+                <div class="swiper-pagination"></div>
+
+            </div>
+
+            <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js "></script>
+            <script src="js/carrousel-swiper.js "></script>
+
+        </section>
+        <!--Fin Carrousel -->
+
+        <!--Inicio Sección Nosotros-->
+        <div class="contenedor-linea" id="nosotros">
+            <div class="linea-vertical "></div>
+            <h4 class="titulo-seccion ">Sobre nosotros</h4>
+        </div>
+
+        <section class="section1">
+
+            <article class="article1">
+                <h2 class="subtitulo-seccion">Nuestra historia</h2>
+                <h5 class="subtitulo1-seccion">Todo Cuero: Una historia de pasión por el cuero que trasciende fronteras</h5>
+
+                <div class="texto-seccion">
+                    <p class="space">
+                        <strong>Todo Cuero</strong> nace de la pasión por el cuero y el trabajo artesanal, una herencia transmitida de generación en generación. Nuestra historia comienza a principios del siglo XX, cuando un grupo de inmigrantes europeos,
+                        buscando nuevas oportunidades, se establecieron en Argentina. Atraídos por la riqueza natural del país y la calidad de su cuero, estos pioneros comenzaron a trabajar con este material noble, creando piezas únicas y duraderas.
+                    </p>
+                    <p class="space">Con el tiempo, su dedicación y talento se tradujeron en un pequeño taller familiar que, con el paso de los años, se transformó en <strong>Todo Cuero</strong>, una empresa reconocida por su excelencia en el diseño y creación de calzado,
+                        abrigos, ropa, carteras y accesorios en cuero.</p>
+                    <p class="space">Cada pieza es elaborada a mano por artesanos expertos que emplean técnicas tradicionales y modernas para crear productos únicos y duraderos.</p>
+                    <p class="space">Seleccionamos cuidadosamente los mejores cueros argentinos y utilizamos materiales de primera calidad para garantizar la excelencia de nuestros productos.</p>
+                </div>
+            </article>
+
+            <article class="article1 ">
+                <img src="images/nosotros/nosotros.jpg" alt="Foto Desfile Todo Cuero ">
+
+
+            </article>
+
+            <article class="article1">
+                <h2 class="subtitulo-seccion">Elegancia atemporal, pasión por el cuero.</h2>
+                <h5 class="subtitulo1-seccion">Una marca familiar con tradición, innovación y compromiso ambiental.</h5>
+                <div class="texto-seccion ">
+                    <p class="space">Ser la marca líder en cuero a nivel mundial, reconocida por la calidad superior de nuestros productos, la elegancia de nuestros diseños y el compromiso con la sostenibilidad.</p>
+                    <p class="space">Hoy, <strong>Todo Cuero</strong> exporta sus productos a todo el mundo, llevando la calidad y el prestigio del cuero argentino a cada rincón del planeta. Somos una empresa familiar que se enorgullece de su historia y tradición, y que
+                        está comprometida con seguir ofreciendo productos excepcionales a nuestros clientes.</p>
+                    <p class="space">Nuestro equipo de diseñadores está en constante búsqueda de nuevas tendencias y estilos, creando piezas atemporales que reflejan la elegancia y el buen gusto.</p>
+                    <p class="space">Nos comprometemos con prácticas de producción responsables que minimizan el impacto ambiental y promueven el uso de materiales sostenibles.</p>
+                    <p class="space">Más que una marca, <strong>Todo Cuero</strong> es una filosofía de vida, una pasión por el cuero que se transmite en cada pieza que creamos.</strong>
+                    </p>
+                </div>
+
+            </article>
+        </section>
+        <!--Fin Sección Nosotros-->
+        <!--Inicio Sección Diseños-->
+        <div class="contenedor-linea " id="diseños">
+            <div class="linea-vertical "></div>
+            <h4 class="titulo-seccion ">Nuestros diseños</h4>
+        </div>
+
+        <section class="section2 ">
+
+            <article class="article2 ">
+                <div>
+                    <a href="#prod-abrigo"><img src="images/disenios/disenios1.jpg" alt=" "></a>
+                </div>
+                <div>
+                    <h3 class="subtitulo-seccion ">Abrigos e indumentaria</h3>
+
+                    <p class="texto-seccion">Tenemos una amplia selección de abrigos elaborados con las pieles más finas y suaves del mercado. Desde clásicos abrigos largos hasta modernas chaquetas, nuestras piezas te brindarán calidez, comodidad y un toque de sofisticación sin
+                        igual.
+                    </p>
+                </div>
+            </article>
+            <article class="article2 ">
+
+                <div>
+                    <a href="#prod-calzado"><img src="images/disenios/disenios2.jpg" alt=" "></a>
+                </div>
+                <div>
+                    <h3 class="subtitulo-seccion">Calzado</h3>
+                    <p class="texto-seccion ">Eleva tu pisada con el calzado de Todo Cuero. Botas, borceguíes, mocasines, sandalias y mucho más, elaborados con pieles de la más alta calidad y diseños que marcan tendencia.</p>
+                </div>
+            </article>
+
+            <article class="article2 ">
+                <div>
+                    <a href="#prod-cartera"><img src="images/disenios/disenios3.jpg" alt=" "></a>
+                </div>
+                <div>
+                    <h3 class="subtitulo-seccion ">Carteras, bolsos, valijas</h3>
+                    <p class="texto-seccion ">Complementa tu look con las exclusivas carteras de <strong> Todo Cuero</strong>. Desde elegantes bolsos de mano hasta prácticas valijas de viaje, nuestras creaciones te acompañarán en cada aventura con estilo y funcionalidad.</p>
+                </div>
+            </article>
+            <article class="article2 ">
+                <div>
+                    <a href="#prod-accesorio"><img src="images/disenios/disenios4.jpg" alt=" "></a>
+                </div>
+                <div>
+                    <h3 class="subtitulo-seccion ">Accesorios</h3>
+                    <p class="texto-seccion ">Descubre una amplia gama de accesorios en <strong>Todo Cuero</strong> que complementarán tu estilo a la perfección. Alhajas en cuero, billeteras, cintos, guantes, contenedores diversos, elementos para escritorio y mucho más, piezas
+                        únicas que combinan funcionalidad y elegancia. </p>
+                </div>
+            </article>
+        </section>
+
+
+        <!--Inicio Sección Shop-->
+        <div class="contenedor-linea" id="shop">
+            <div class="linea-vertical "></div>
+            <h4 class="titulo-seccion ">Todo Cuero <span style="color: #330000; font-family: 'Dancing Script', cursive; font-weight: bold; ">Shop</span></h4>
+        </div>
+        <section class="contenedor-shop ">
+            <div class="producto-shop" id="prod-abrigo">
+                <h2 class="producto-titulo ">Indumentaria</h2>
+                <img src="images/shop/abrigos/producto1.jpg " alt="Imagen del producto 1 " class="producto-imagen ">
+                <p class="producto-descripcion ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <span class="producto-precio ">$50.00</span>
+                <button class="producto-boton ">Añadir a su bolsa</button>
+            </div>
+            <div class="producto-shop ">
+                <h2 class="producto-titulo ">Indumentaria</h2>
+                <img src="images/shop/abrigos/producto2.jpg " alt="Imagen del producto 1 " class="producto-imagen ">
+                <p class="producto-descripcion ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <span class="producto-precio ">$50.00</span>
+                <button class="producto-boton ">Añadir a su bolsa</button>
+            </div>
+            <div class="producto-shop ">
+                <h2 class="producto-titulo ">Indumentaria</h2>
+                <img src="images/shop/abrigos/producto3.jpg " alt="Imagen del producto 1 " class="producto-imagen ">
+                <p class="producto-descripcion ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <span class="producto-precio ">$50.00</span>
+                <button class="producto-boton ">Añadir a su bolsa</button>
+            </div>
+            <div class="producto-shop ">
+                <h2 class="producto-titulo ">Indumentaria</h2>
+                <img src="images/shop/abrigos/producto4.jpg " alt="Imagen del producto 1 " class="producto-imagen ">
+                <p class="producto-descripcion ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <span class="producto-precio ">$50.00</span>
+                <button class="producto-boton ">Añadir a su bolsa</button>
+            </div>
+            <div class="producto-shop ">
+                <h2 class="producto-titulo ">Indumentaria</h2>
+                <img src="images/shop/abrigos/producto5.jpg " alt="Imagen del producto 1 " class="producto-imagen ">
+                <p class="producto-descripcion ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <span class="producto-precio ">$50.00</span>
+                <button class="producto-boton ">Añadir a su bolsa</button>
+            </div>
+            <div class="producto-shop ">
+                <h2 class="producto-titulo ">Indumentaria</h2>
+                <img src="images/shop/abrigos/producto6.jpg " alt="Imagen del producto 1 " class="producto-imagen ">
+                <p class="producto-descripcion ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <span class="producto-precio ">$50.00</span>
+                <button class="producto-boton ">Añadir a su bolsa</button>
+            </div>
+            <div class="producto-shop " id="prod-calzado">
+                <h2 class="producto-titulo ">Calzado</h2>
+                <img src="images/shop/calzado/producto7.jpg " alt="Imagen del producto 1 " class="producto-imagen ">
+                <p class="producto-descripcion ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <span class="producto-precio ">$50.00</span>
+                <button class="producto-boton ">Añadir a su bolsa</button>
+            </div>
+            <div class="producto-shop ">
+                <h2 class="producto-titulo ">Calzado</h2>
+                <img src="images/shop/calzado/producto8.jpg " alt="Imagen del producto 1 " class="producto-imagen ">
+                <p class="producto-descripcion ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <span class="producto-precio ">$50.00</span>
+                <button class="producto-boton">Añadir a su bolsa</button>
+            </div>
+            <div class="producto-shop ">
+                <h2 class="producto-titulo ">Calzado</h2>
+                <img src="images/shop/calzado/producto9.jpg " alt="Imagen del producto 1 " class="producto-imagen ">
+                <p class="producto-descripcion ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <span class="producto-precio ">$50.00</span>
+                <button class="producto-boton ">Añadir a su bolsa</button>
+            </div>
+            <div class="producto-shop ">
+                <h2 class="producto-titulo ">Calzado</h2>
+                <img src="images/shop/calzado/producto10.jpg " alt="Imagen del producto 1 " class="producto-imagen ">
+                <p class="producto-descripcion ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <span class="producto-precio ">$50.00</span>
+                <button class="producto-boton ">Añadir a su bolsa</button>
+            </div>
+            <div class="producto-shop ">
+                <h2 class="producto-titulo ">Calzado</h2>
+                <img src="images/shop/calzado/producto11.jpg " alt="Imagen del producto 1 " class="producto-imagen ">
+                <p class="producto-descripcion ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <span class="producto-precio ">$50.00</span>
+                <button class="producto-boton ">Añadir a su bolsa</button>
+            </div>
+            <div class="producto-shop ">
+                <h2 class="producto-titulo ">Calzado</h2>
+                <img src="images/shop/calzado/producto12.jpg " alt="Imagen del producto 1 " class="producto-imagen ">
+                <p class="producto-descripcion ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <span class="producto-precio ">$50.00</span>
+                <button class="producto-boton ">Añadir a su bolsa</button>
+            </div>
+            <div class="producto-shop " id="prod-cartera">
+                <h2 class="producto-titulo ">Carteras</h2>
+                <img src="images/shop/carteras/producto13.jpg " alt="Imagen del producto 1 " class="producto-imagen ">
+                <p class="producto-descripcion ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <span class="producto-precio ">$50.00</span>
+                <button class="producto-boton ">Añadir a su bolsa</button>
+            </div>
+            <div class="producto-shop ">
+                <h2 class="producto-titulo ">Carteras</h2>
+                <img src="images/shop/carteras/producto14.jpg " alt="Imagen del producto 1 " class="producto-imagen ">
+                <p class="producto-descripcion ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <span class="producto-precio ">$50.00</span>
+                <button class="producto-boton ">Añadir a su bolsa</button>
+            </div>
+            <div class="producto-shop ">
+                <h2 class="producto-titulo ">Carteras</h2>
+                <img src="images/shop/carteras/producto15.jpg " alt="Imagen del producto 1 " class="producto-imagen ">
+                <p class="producto-descripcion ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <span class="producto-precio ">$50.00</span>
+                <button class="producto-boton ">Añadir a su bolsa</button>
+            </div>
+            <div class="producto-shop " id="prod-accesorio">
+                <h2 class="producto-titulo ">Accesorios</h2>
+                <img src="images/shop/accesorios/producto16.jpg " alt="Imagen del producto 1 " class="producto-imagen ">
+                <p class="producto-descripcion ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <span class="producto-precio ">$50.00</span>
+                <button class="producto-boton ">Añadir a su bolsa</button>
+            </div>
+            <div class="producto-shop ">
+                <h2 class="producto-titulo ">Accesorios</h2>
+                <img src="images/shop/accesorios/producto17.jpg " alt="Imagen del producto 1 " class="producto-imagen ">
+                <p class="producto-descripcion ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <span class="producto-precio ">$50.00</span>
+                <button class="producto-boton ">Añadir a su bolsa</button>
+            </div>
+            <div class="producto-shop ">
+                <h2 class="producto-titulo ">Accesorios</h2>
+                <img src="images/shop/accesorios/producto18.jpg " alt="Imagen del producto 1 " class="producto-imagen ">
+                <p class="producto-descripcion ">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <span class="producto-precio ">$50.00</span>
+                <button class="producto-boton ">Añadir a su bolsa</button>
+            </div>
+
+
+        </section>
+        <!--Fin Sección Shop-->
+
+        <!--Inicio Sección Contactarnos-->
+        <div class="contenedor-linea" id="contacto">
+            <div class="linea-vertical "></div>
+            <h4 class="titulo-seccion ">Contáctanos:</h4>
+        </div>
+        <section class="form-container">
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nombre:</label>
+                    <input type="text" id="name" name="name">
+                    <div class="error" id="nameError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                    <div class="error" id="emailError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Asunto:</label>
+                    <select id="subject" name="subject">
+                        <option value="">Seleccione un asunto</option>
+                        <option value="consulta">Consulta</option>
+                        <option value="soporte">Soporte</option>
+                        <option value="otros">Otros</option>
+                    </select>
+                    <div class="error" id="subjectError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje:</label>
+                    <textarea id="message" name="message" rows="4"></textarea>
+                    <div class="error" id="messageError"></div>
+                </div>
+                <div class="form-group">
+                    <label>Preferencia de Contacto:</label>
+                    <input type="radio" id="contactEmail" name="contactPreference" value="email">
+                    <label for="contactEmail">Email</label>
+                    <input type="radio" id="contactPhone" name="contactPreference" value="phone">
+                    <label for="contactPhone">Teléfono</label>
+                    <div class="error" id="contactPreferenceError"></div>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="terms" name="terms"> Acepto los términos y condiciones
+                    </label>
+                    <div class="error" id="termsError"></div>
+                </div>
+                <div class="form-group">
+                    <button type="button" onclick="validateForm()">Enviar</button>
+                </div>
+            </form>
+        </section>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js "></script>
+
+        <!--Fin Sección Contactarnos-->
+
+    </main>
+    <footer>
+        <div>
+            <a href="# "><img src="images/logo/origin.png " class="logo-footer " alt="Logo "></a>
+        </div>
+
+        <div>
+            <p>Av. Corrientes 1700, CABA, Buenos Aires, Argentina. </p>
+            <p>011 9 12 322568</p>
+            <p><a class="enlace" href="# ">TodoCuero@TodoCuero.com.ar</a></p>
+        </div>
+
+        <div>
+            <ul class="redes">
+                <li>
+                    <a class="enlace" href="#"><i class="fab fa-facebook-f fa-lg color-icono-awesome enlaces "></i></a>
+                </li>
+                <li>
+                    <a href="# "><i class="fab fa-twitter fa-lg color-icono-awesome enlaces "></i></a>
+                </li>
+                <li>
+                    <a href="# "><i class="fab fa-linkedin-in fa-lg color-icono-awesome enlaces "></i></a>
+                </li>
+                <li>
+                    <a href="# "><i class="fab fa-youtube fa-lg color-icono-awesome enlaces "></i></a>
+                </li>
+                <li>
+                    <a href="# "><i class="fab fa-instagram fa-lg color-icono-awesome enlaces "></i></a>
+                </li>
+            </ul>
+        </div>
+        <div class="enlaces copyright ">
+            <p>Copyright © 2024 Todos los derechos reservados por Todo Cuero</p>
+            <p>Diseñado por <a class="enlace" href="#">Sota&Wagner</p>
+        </div>   
+    </footer>
+</body>
+
+</html>

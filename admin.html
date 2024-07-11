@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos - Administración</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: beige;
+            font-family: 'Roboto', sans-serif;
+            color: #330000;
+        }
+        .header {
+            background-color: #330000;
+            color: beige;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .header nav {
+            text-align: right;
+        }
+        .header nav a {
+            color: beige;
+            margin-left: 15px;
+        }
+        .header nav a:hover {
+            text-decoration: none;
+            color: #f8f9fa; /* Cambiar color de hover si lo deseas */
+        }
+        .main {
+            padding: 20px;
+        }
+        .card {
+            border: 1px solid #330000;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card img {
+            max-width: 100%;
+            height: 200px; /* Altura fija para todas las imágenes */
+            object-fit: cover; /* Ajustar imagen para llenar el contenedor */
+            border-radius: 10px 10px 0 0;
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+        .card-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .card-text {
+            flex-grow: 1;
+        }
+        .card-button {
+            background-color: #330000;
+            color: beige;
+            border: none;
+            padding: 6px 20px; /* Ajustar el padding del botón */
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px auto 0; /* Centrar el botón y agregar espacio arriba */
+        }
+        .card-button:hover {
+            background-color: #550000;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Gestión de Productos</h1>
+        <nav>
+            <a href="agregar_producto.html">Agregar Producto</a>
+            <a href="#">Eliminar Producto</a>
+            <a href="#">Actualizar Producto</a>
+            <span>Sesión Admin</span>
+            <a href="#">Salir de Sesión</a>
+        </nav>
+    </div>
+    <div class="main container mt-4">
+       
+        <div class="row" id="products-container">
+            
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('http://127.0.0.1:5000/productos')
+                .then(response => response.json())
+                .then(data => {
+                    const productsContainer = document.getElementById('products-container');
+                    data.forEach(producto => {
+                        const productCard = document.createElement('div');
+                        productCard.className = 'col-12 col-sm-6 col-md-4 col-lg-3 mb-3';
+                        productCard.innerHTML = `
+                            <div class="card h-100">
+                                <img src="${producto.imagen_url}" class="card-img-top" alt="${producto.nombre_prod}">
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">${producto.nombre_prod}</h5>
+                                    <p class="card-text flex-grow-1">${producto.descripcion}</p>
+                                    <a href="detalle_producto.html?id=${producto.id_prod}" class="card-button">Ver más</a>
+                                </div>
+                            </div>
+                        `;
+                        productsContainer.appendChild(productCard);
+                    });
+                })
+                .catch(error => console.error('Error al obtener los productos:', error));
+        });
+    </script>
+    
+</body>
+</html>
